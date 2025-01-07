@@ -6,6 +6,4 @@ noodl
 app
 hey
 cat
-hai
-hello
-hellox
+

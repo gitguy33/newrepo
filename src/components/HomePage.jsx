@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import ExampleCarouselImage from './OIP.jpeg'; // Make sure to import your image correctly
+import ExampleCarouselImage from './BG.jpg'; // Make sure to import your image correctly
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -36,8 +36,14 @@ export const Home = () => {
               aria-label="Search"
             />
             <Button variant="outline-success">Search</Button>
+
             </Form>
             </div>
+
+            <div style={{marginLeft:"300px"}}>
+            <Nav.Link href="#pricing">Login</Nav.Link>
+            </div>
+
           </Nav>
         </Container>
       </Navbar>

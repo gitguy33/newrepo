@@ -1,11 +1,12 @@
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Order } from './components/orderpage';
+import OrderPage from './components/Orderpage';
+
 function App() {
   return (
     <div>
-      <Order/>
+      <OrderPage/>
     </div>
   );
 }

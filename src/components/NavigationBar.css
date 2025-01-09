@@ -1,0 +1,14 @@
+#navDiv{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content:center;
+    align-items:center;
+}
+#navDiv * {
+    margin:0 10px 0 10px;
+}
+
+#searchDiv{
+    display: flex;
+    align-items: center;
+}

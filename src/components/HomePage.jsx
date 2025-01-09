@@ -10,6 +10,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { IoMdLogIn } from "react-icons/io";
 import axios from 'axios';
 import { Card, Row, Col } from 'react-bootstrap';
+import NavigationBar from './NavigationBar';
 
 export const Home = () => {
 
@@ -35,39 +36,10 @@ export const Home = () => {
 
   return (
     <div>
-      <div>
-        <Navbar bg="light" data-bs-theme="light">
-          <Container>
-            <Navbar.Brand href="#home">QuickCart</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#features">MyOrders</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-              <Nav.Link href="#pricing">AboutUs</Nav.Link>
-
-              <div name="search" style={{ marginLeft: "200px" }}>
-                <Form className="d-flex">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </Form>
-              </div>
-
-              <div style={{ marginLeft: "200px" }}>
-                <Nav.Link href="#pricing"> <IoMdLogIn /> LOGIN</Nav.Link>
-              </div>
-
-              <div style={{ marginLeft: "50px" }}>
-                <Nav.Link href="#pricing"><MdOutlineShoppingCart /> CART</Nav.Link>
-              </div>
-            </Nav>
-          </Container>
-        </Navbar>
-      </div>
+      
+      {/* ------------NavBar--------- */}
+      <NavigationBar/>
+      {/* ------------NavBar--------- */}
 
       <Carousel activeIndex={index} onSelect={handleSelect}>
 

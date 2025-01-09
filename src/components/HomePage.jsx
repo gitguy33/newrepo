@@ -18,7 +18,7 @@ export const Home = () => {
   useEffect(() => {
     const fetchPros = async () => {
       try {
-        const response = await axios.get("https://fakestoreapi.com/products");
+        const response = await axios.get("https://api.escuelajs.co/api/v1/products");
         setProducts(response.data);
       } catch (error) {
         alert("error occurred!!");
@@ -122,20 +122,24 @@ export const Home = () => {
 
       <Container>
         <Row>
-          {products.map((a) => (
-            <Col sm={4} key={a.id}>
-              <Card style={{ width: '18rem', marginRight:"150px", gap:"20px", marginTop:"35px"}}>
-                <Card.Img variant="top" src={a.image} width="100" style={{width:"200px",height:"150px", paddingLeft:"90px"}} />
-                <Card.Body>
-                  <Card.Title>{a.title}</Card.Title>
-                  <Card.Text>
-                    {a.title}
-                  </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
+          {products
+            .filter((a) => {
+              return !a.images[0].startsWith('[');  // Exclude if it starts with '['
+            })
+            .map((a) => (
+              <Col sm={4} key={a.id}>
+                <Card style={{ width: '18rem', marginRight: "150px", gap: "20px", marginTop: "35px" }}>
+                  <Card.Img variant="top" src={a.images} width="100" style={{ width: "200px", height: "150px", paddingLeft: "90px" }} />
+                  <Card.Body>
+                    <Card.Title>{a.title}</Card.Title>
+                    <Card.Text>
+                      ${a.price}.00
+                    </Card.Text>
+                    <Button variant="primary">Add to cart</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
         </Row>
       </Container>
     </div>

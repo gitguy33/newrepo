@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import ExampleCarouselImage from './BG.jpg'; // Make sure to import your image correctly
 import Container from 'react-bootstrap/Container';
@@ -8,8 +8,24 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { IoMdLogIn } from "react-icons/io";
+import axios from 'axios';
 
 export const Home = () => {
+
+  const [products,setProducts]=useState([]);
+
+  useEffect(()=>{
+    const fetchPros=async()=>{
+      try{
+        const response=await axios.get("https://fakestoreapi.com/products");
+        setProducts(response.data);
+      }
+      catch(error){
+        alert("error occurred!!");
+      }
+    }
+    fetchPros();
+  },[]);
 
   const [index, setIndex] = useState(0);
 
@@ -106,6 +122,17 @@ export const Home = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+
+      <div>
+        <ul>
+          {products.map((a)=>(
+            <li key={a.id}>
+                {a.title}
+                <img src={a.image} alt={a.title} width="100"/>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

@@ -1,108 +1,76 @@
 import React, { useState } from 'react';
+import './OrderPage.css';
 
-const items = [
-  { id: 1, name: 'Apple', category: 'Groceries', price: 100 },
-  { id: 2, name: 'Laptop', category: 'Electronics', price: 50000 },
-  { id: 3, name: 'Milk', category: 'Groceries', price: 50 },
-  { id: 4, name: 'Phone', category: 'Electronics', price: 20000 },
-  { id: 5, name: 'Headphones', category: 'Electronics', price: 2000 },
-  { id: 6, name: 'Bread', category: 'Groceries', price: 30 },
-];
+const Order = () => {
+    const [showModal, setShowModal] = useState(false);
 
-function OrderPage() {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [priceFilter, setPriceFilter] = useState(0);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [cart, setCart] = useState([]);
+    const handleProceedToPay = () => {
+        setShowModal(true);
+    };
 
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
-  };
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
 
-  const handlePriceChange = (event) => {
-    setPriceFilter(Number(event.target.value));
-  };
-
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const handleAddToCart = (item) => {
-    setCart([...cart, item]);
-  };
-
-  const filteredItems = items.filter((item) => {
     return (
-      (selectedCategory === 'All' || item.category === selectedCategory) &&
-      item.price >= priceFilter &&
-      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+        <div>
+            <form>
+                <div className="place-order-left">
+                    <p className="title">Delivery information</p>
+                    <div className="multi-fields">
+                        <input type="text" placeholder='First Name'/>
+                        <input type="text" placeholder='Last Name'/>
+                    </div>
+                    <input type="email" placeholder='Email Address' />
+                    <input type="text" placeholder='Street' />
+                    <div className="multi-fields">
+                        <input type="text" placeholder='City'/>
+                        <input type="text" placeholder='State'/>
+                    </div>
+                    <div className="multi-fields">
+                        <input type="text" placeholder='Zip code'/>
+                        <input type="text" placeholder='Country'/>
+                    </div>
+                    <input type="text" placeholder='Phone' />
+                </div>
+                <div className="place-order-right">
+                    <div className="cart-total">
+                        <h2>Cart Total</h2>
+                        <div>
+                            <div className="cart-total-details">
+                                <p>Subtotal</p>
+                                <p>₹ 100</p>
+                            </div>
+                            <hr/>
+                            <div className="cart-total-details">
+                                <p>Delivery Charge</p>
+                                <p>₹ 20</p>
+                            </div>
+                            <hr/>
+                            <div className="cart-total-details">
+                                <b>Total</b>
+                                <p>₹ 120</p>
+                            </div>
+                        </div>
+                        <button type="button" className="proceed-button" onClick={handleProceedToPay}>Proceed to Pay</button>
+                    </div>
+                </div>
+            </form>
+
+            {showModal && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <span className="close" onClick={handleCloseModal}>&times;</span>
+                        <h2>Enter Payment Details</h2>
+                        <input type="text" placeholder="Card Number" />
+                        <input type="text" placeholder="CVV" />
+                        <input type="text" placeholder="Expiry Date" />
+                        <button className="submit-button">Submit Payment</button>
+                    </div>
+                </div>
+            )}
+        </div>
     );
-  });
+};
 
-  return (
-    <div>
-      {/* Filters */}
-      <div>
-        <label>
-          Category:
-          <select value={selectedCategory} onChange={handleCategoryChange}>
-            <option value="All">All</option>
-            <option value="Groceries">Groceries</option>
-            <option value="Electronics">Electronics</option>
-          </select>
-        </label>
-
-        <label>
-          Minimum Price:
-          <input
-            type="number"
-            value={priceFilter}
-            onChange={handlePriceChange}
-            placeholder="Enter minimum price"
-          />
-        </label>
-
-        <label>
-          Search:
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={handleSearch}
-            placeholder="Search by name"
-          />
-        </label>
-      </div>
-
-      {/* Item List */}
-      <div>
-        <h2>Items</h2>
-        <ul>
-          {filteredItems.map((item) => (
-            <li key={item.id}>
-              {item.name} - {item.category} - ₹{item.price}{' '}
-              <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Cart */}
-      <div>
-        <h2>Cart</h2>
-        <ul>
-          {cart.map((item, index) => (
-            <li key={index}>
-              {item.name} - ₹{item.price}
-            </li>
-          ))}
-        </ul>
-        <h3>
-          Total: ₹
-          {cart.reduce((total, item) => total + item.price, 0)}
-        </h3>
-      </div>
-    </div>
-  );
-}
-
-export default OrderPage;
+export default Order;

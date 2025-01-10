@@ -2,15 +2,11 @@ import { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import ExampleCarouselImage from './BG.jpg'; // Make sure to import your image correctly
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { MdOutlineShoppingCart } from "react-icons/md";
-import { IoMdLogIn } from "react-icons/io";
 import axios from 'axios';
 import { Card, Row, Col } from 'react-bootstrap';
 import NavigationBar from './NavigationBar';
+import FooterSection from './FooterSection';
 
 export const Home = () => {
 
@@ -35,7 +31,7 @@ export const Home = () => {
   };
 
   return (
-    <div>
+    <div id='mainDiv'>
       
       {/* ------------NavBar--------- */}
       <NavigationBar/>
@@ -92,7 +88,7 @@ export const Home = () => {
         </Carousel.Item>
       </Carousel>
 
-      <Container>
+      <Container id='prodContainer'>
         <Row>
           {products
             .filter((a) => {
@@ -100,7 +96,7 @@ export const Home = () => {
             })
             .map((a) => (
               <Col sm={4} key={a.id}>
-                <Card style={{ width: '18rem', marginRight: "150px", gap: "20px", marginTop: "35px" }}>
+                <Card style={{ width: '18rem', gap: "20px", marginTop: "35px" }}>
                   <Card.Img variant="top" src={a.images} width="100" style={{ width: "200px", height: "150px", paddingLeft: "90px" }} />
                   <Card.Body>
                     <Card.Title>{a.title}</Card.Title>
@@ -114,6 +110,9 @@ export const Home = () => {
             ))}
         </Row>
       </Container>
+
+      <FooterSection/>
+
     </div>
   );
 };

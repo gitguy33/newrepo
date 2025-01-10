@@ -25,8 +25,8 @@ function NavigationBar(){
   };
 
   return(
-      <div id='navDiv'>
-      <Navbar bg="light" data-bs-theme="light">
+    <div id='navDiv'>
+      <Navbar data-bs-theme="light" id='navBar'>
         <Container>
           <Navbar.Brand href="#home">QuickCart</Navbar.Brand>
             <Nav className="me-auto">

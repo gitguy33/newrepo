@@ -7,45 +7,67 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import './NavigationBar.css';
 import { FiSearch } from "react-icons/fi";
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useState } from 'react';
 
 function NavigationBar(){
-    return(
-        <div id='navDiv'>
-        <Navbar bg="light" data-bs-theme="light">
-          <Container>
-            <Navbar.Brand href="#home">QuickCart</Navbar.Brand>
+
+  const [showSearch, setShowSearch] = useState(false);
+  const handleSearchClick = (e) => {
+    e.preventDefault();
+    if (!showSearch) {
+      // Show the search input
+      setShowSearch(true);
+    } else {
+      // Trigger search (submit)
+      console.log('Submitting search:');
+    }
+  };
+
+  return(
+      <div id='navDiv'>
+      <Navbar bg="light" data-bs-theme="light">
+        <Container>
+          <Navbar.Brand href="#home">QuickCart</Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#features">MyOrders</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-              <Nav.Link href="#pricing">AboutUs</Nav.Link>
+              <Nav.Link href="#features">My Orders</Nav.Link>
+              <NavDropdown title="Categories" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Clothes</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Foot Wear</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Electronics</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Furniture</NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link href="#pricing">AboutUs</Nav.Link>
 
-              <div>
-                <Nav.Link href="#pricing"> <IoMdLogIn /> LOGIN</Nav.Link>
-              </div>
+            <div className='vcenter'>
+              <Nav.Link href="#pricing"><IoMdLogIn />LOGIN</Nav.Link>
+            </div>
 
-              <div>
-                <Nav.Link href="#pricing"><MdOutlineShoppingCart /> CART</Nav.Link>
-              </div>
+            <div className='vcenter'>
+              <Nav.Link href="#pricing"><MdOutlineShoppingCart />CART</Nav.Link>
+            </div>
 
-              <div id="searchDiv">
-                <FiSearch/>
-                {/* <Form className="d-flex">
+            <div className='vcenter'>
+              {showSearch && (
+                <Form className="d-flex" onSubmit={handleSearchClick}>
                   <Form.Control
                     type="search"
                     placeholder="Search"
                     className="me-2"
                     aria-label="Search"
                   />
-                  <Button variant="outline-success">Search</Button>
-                </Form> */}
-              </div>
-              
-            </Nav>
-          </Container>
-        </Navbar>
-      </div>
-    );
+                </Form>
+              )}
+              <FiSearch onClick={handleSearchClick} />
+            </div>
+            
+          </Nav>
+        </Container>
+      </Navbar>
+    </div>
+  );
 }
 
 export default NavigationBar;

@@ -10,9 +10,10 @@ import { FiSearch } from "react-icons/fi";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useState } from 'react';
 
-function NavigationBar(){
+function NavigationBar({ncategory,setNcategory}){
 
   const [showSearch, setShowSearch] = useState(false);
+
   const handleSearchClick = (e) => {
     e.preventDefault();
     if (!showSearch) {
@@ -23,6 +24,10 @@ function NavigationBar(){
       console.log('Submitting search:');
     }
   };
+  const handleCategoryChange = (e)=>{
+    console.log(e.target.name);
+    setNcategory(e.target.name);
+  }
 
   return(
     <div id='navDiv'>
@@ -33,12 +38,12 @@ function NavigationBar(){
               <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#features">My Orders</Nav.Link>
               <NavDropdown title="Categories" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Clothes</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Foot Wear</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Electronics</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Furniture</NavDropdown.Item>
+              <NavDropdown.Item onClick={handleCategoryChange} name="Clothes">Clothes</NavDropdown.Item>
+              <NavDropdown.Item onClick={handleCategoryChange} name="Shoes">Foot Wear</NavDropdown.Item>
+              <NavDropdown.Item onClick={handleCategoryChange} name="Electronicsnnnn">Electronics</NavDropdown.Item>
+              <NavDropdown.Item onClick={handleCategoryChange} name="Furniture">Furniture</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">All Categories</NavDropdown.Item>
+              <NavDropdown.Item name="any">All Categories</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#pricing">AboutUs</Nav.Link>
 

@@ -10,6 +10,8 @@ import CarouselSection from './CarouselSection';
 export const Home = () => {
 
   const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState("any");
+
 
   useEffect(() => {
     const fetchPros = async () => {
@@ -22,12 +24,12 @@ export const Home = () => {
     }
     fetchPros();
   }, []);
-  
+
   return (
     <div id='mainDiv'>
       
       {/* ------------NavBar--------- */}
-      <NavigationBar/>
+      <NavigationBar ncategory={category} setNcategory={setCategory}/>
       {/* ------------NavBar--------- */}
 
       {/* Carousel */}
@@ -38,7 +40,11 @@ export const Home = () => {
         <Row>
           {products
             .filter((a) => {
-              return !a.images[0].startsWith('[');  // Exclude if it starts with '['
+              if(category!="any"){
+                return (!a.images[0].startsWith('[') && a.category.name==category);  // Exclude if it starts with '['
+              } else {
+                return !a.images[0].startsWith('[');
+              }
             })
             .map((a) => (
               <Col sm={4} key={a.id}>

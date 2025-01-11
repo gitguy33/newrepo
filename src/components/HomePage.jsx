@@ -6,12 +6,15 @@ import { Card, Row, Col } from 'react-bootstrap';
 import NavigationBar from './NavigationBar';
 import FooterSection from './FooterSection';
 import CarouselSection from './CarouselSection';
+import SpinnerIc from './SpinnerIc';
 
 export const Home = () => {
 
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("any");
   const [searchItem, setSearchItem] = useState('');
+  const [loading,  setLoading] = useState(true);
+  let filteredp=[];
 
 
   useEffect(() => {
@@ -21,6 +24,8 @@ export const Home = () => {
         setProducts(response.data);
       } catch (error) {
         alert("error occurred!!");
+      } finally{
+        setLoading(false);
       }
     }
     fetchPros();
@@ -37,9 +42,10 @@ export const Home = () => {
       <CarouselSection/>
       {/* Carousel */}
 
+      {loading?(<SpinnerIc/>):(
       <Container id='prodContainer'>
         <Row>
-          {products
+          {filteredp=products
             .filter((a) => {
               if(category=="search"){
                 return (!a.images[0].startsWith('[') && a.title.toLowerCase().includes(searchItem.toLowerCase()));
@@ -63,8 +69,10 @@ export const Home = () => {
                 </Card>
               </Col>
             ))}
+            {filteredp.length>0?(<></>):(<h1>Oops!!! No Products Found</h1>)}
         </Row>
       </Container>
+      )}
 
 {/* ------Footer-------- */}
       <FooterSection/>

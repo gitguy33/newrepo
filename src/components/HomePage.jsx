@@ -11,6 +11,7 @@ export const Home = () => {
 
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("any");
+  const [searchItem, setSearchItem] = useState('');
 
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export const Home = () => {
     <div id='mainDiv'>
       
       {/* ------------NavBar--------- */}
-      <NavigationBar ncategory={category} setNcategory={setCategory}/>
+      <NavigationBar ncategory={category} setNcategory={setCategory} setSearchItem={setSearchItem}/>
       {/* ------------NavBar--------- */}
 
       {/* Carousel */}
@@ -40,9 +41,11 @@ export const Home = () => {
         <Row>
           {products
             .filter((a) => {
-              if(category!="any"){
+              if(category=="search"){
+                return (!a.images[0].startsWith('[') && a.title.toLowerCase().includes(searchItem.toLowerCase()));
+              } else if(category!="any"){
                 return (!a.images[0].startsWith('[') && a.category.name==category);  // Exclude if it starts with '['
-              } else {
+              } else  {
                 return !a.images[0].startsWith('[');
               }
             })
@@ -63,7 +66,9 @@ export const Home = () => {
         </Row>
       </Container>
 
+{/* ------Footer-------- */}
       <FooterSection/>
+{/* ------Footer-------- */}
 
     </div>
   );

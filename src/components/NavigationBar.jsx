@@ -10,7 +10,7 @@ import { FiSearch } from "react-icons/fi";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useState } from 'react';
 
-function NavigationBar({ncategory,setNcategory}){
+function NavigationBar({ncategory,setNcategory,setSearchItem}){
 
   const [showSearch, setShowSearch] = useState(false);
 
@@ -19,11 +19,19 @@ function NavigationBar({ncategory,setNcategory}){
     if (!showSearch) {
       // Show the search input
       setShowSearch(true);
+      
     } else {
-      // Trigger search (submit)
-      console.log('Submitting search:');
+
     }
   };
+
+  const handleSearchSubmit=(e)=>{
+    e.preventDefault();
+    setNcategory("search");
+    // Trigger search (submit)
+    console.log('Submitting search:',e.target.searchInp.value);
+    setSearchItem(e.target.searchInp.value);
+  }
   const handleCategoryChange = (e)=>{
     console.log(e.target.name);
     setNcategory(e.target.name);
@@ -33,9 +41,9 @@ function NavigationBar({ncategory,setNcategory}){
     <div id='navDiv'>
       <Navbar data-bs-theme="light" id='navBar'>
         <Container>
-          <Navbar.Brand href="#home">QuickCart</Navbar.Brand>
+          <Navbar.Brand href="/">QuickCart</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="#features">My Orders</Nav.Link>
               <NavDropdown title="Categories" id="basic-nav-dropdown">
               <NavDropdown.Item onClick={handleCategoryChange} name="Clothes">Clothes</NavDropdown.Item>
@@ -43,7 +51,7 @@ function NavigationBar({ncategory,setNcategory}){
               <NavDropdown.Item onClick={handleCategoryChange} name="Electronicsnnnn">Electronics</NavDropdown.Item>
               <NavDropdown.Item onClick={handleCategoryChange} name="Furniture">Furniture</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item name="any">All Categories</NavDropdown.Item>
+              <NavDropdown.Item onClick={handleCategoryChange} name="any">All Categories</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#pricing">AboutUs</Nav.Link>
 
@@ -57,8 +65,9 @@ function NavigationBar({ncategory,setNcategory}){
 
             <div className='vcenter'>
               {showSearch && (
-                <Form className="d-flex" onSubmit={handleSearchClick}>
+                <Form className="d-flex" onSubmit={handleSearchSubmit}>
                   <Form.Control
+                    name='searchInp'
                     type="search"
                     placeholder="Search"
                     className="me-2"

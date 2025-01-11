@@ -36,8 +36,9 @@ function NavigationBar(){
               <NavDropdown.Item href="#action/3.1">Clothes</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Foot Wear</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Electronics</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Furniture</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Furniture</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">All Categories</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#pricing">AboutUs</Nav.Link>
 

@@ -7,6 +7,7 @@ import NavigationBar from './NavigationBar';
 import FooterSection from './FooterSection';
 import CarouselSection from './CarouselSection';
 import SpinnerIc from './SpinnerIc';
+import NoResults from './noResults.png';
 
 export const Home = () => {
 
@@ -35,7 +36,7 @@ export const Home = () => {
     <div id='mainDiv'>
       
       {/* ------------NavBar--------- */}
-      <NavigationBar ncategory={category} setNcategory={setCategory} setSearchItem={setSearchItem}/>
+      <NavigationBar category={category} setCategory={setCategory} setSearchItem={setSearchItem}/>
       {/* ------------NavBar--------- */}
 
       {/* Carousel */}
@@ -69,7 +70,7 @@ export const Home = () => {
                 </Card>
               </Col>
             ))}
-            {filteredp.length>0?(<></>):(<h1>Oops!!! No Products Found</h1>)}
+            {filteredp.length>0?(<></>):(<div id='noresultimg'><img src={NoResults}/><h1>Oops!!! No Products Found</h1></div>)}
         </Row>
       </Container>
       )}

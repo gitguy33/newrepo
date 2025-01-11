@@ -43,3 +43,9 @@
 #spinIc{
     margin: 30px 44.3vw;
 }
+
+#noresultimg{
+    display:block;
+    justify-items: center;
+    /* width: 200px; */
+}

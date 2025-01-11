@@ -10,7 +10,7 @@ import { FiSearch } from "react-icons/fi";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useState } from 'react';
 
-function NavigationBar({ncategory,setNcategory,setSearchItem}){
+function NavigationBar({category,setCategory,setSearchItem}){
 
   const [showSearch, setShowSearch] = useState(false);
 
@@ -19,22 +19,24 @@ function NavigationBar({ncategory,setNcategory,setSearchItem}){
     if (!showSearch) {
       // Show the search input
       setShowSearch(true);
-      
     } else {
-
+      handleSearchSubmit({
+        preventDefault: () => {}, // prevent the form from submitting
+        target: document.querySelector('form') // pass the form as the event target
+      });
     }
   };
 
   const handleSearchSubmit=(e)=>{
     e.preventDefault();
-    setNcategory("search");
+    setCategory("search");
     // Trigger search (submit)
     console.log('Submitting search:',e.target.searchInp.value);
     setSearchItem(e.target.searchInp.value);
   }
   const handleCategoryChange = (e)=>{
     console.log(e.target.name);
-    setNcategory(e.target.name);
+    setCategory(e.target.name);
   }
 
   return(

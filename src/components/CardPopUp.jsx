@@ -5,7 +5,7 @@ const CardPop = ({a}) => {
   return (
     <StyledWrapper>
       <div className="card" id="popupcard">
-        <div><img src={a.images} alt={a.title} width="100" /></div>
+        <div><img src={a.images} alt={a.title}  width="150" height="200" /></div>
         <div className="content">
           <span className="icon">
             {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" height={46} width={65}>
@@ -23,7 +23,7 @@ const CardPop = ({a}) => {
           <p className="title">{a.title}</p>
           <p className="description">
                 {a.description}<br/>
-                 <h5>Price:{a.price}</h5>
+                 <h6>Price: ${a.price}.00</h6>
           </p>
           
           <button className="accept-button" type="button">Add to cart</button>
@@ -59,7 +59,7 @@ const StyledWrapper = styled.div`
   }
 
   .title {
-    font-size: 1rem;
+    font-size: 21px;
     font-weight: 600;
     margin-bottom: 0.5rem;
     text-align: left;
@@ -122,9 +122,13 @@ const StyledWrapper = styled.div`
       color 0.3s;
   }
 
+
+
   .accept-button:hover {
     background-color: #634647; /* Darker shade on hover */
     color: #ddad81; /* Light shade on hover */
   }`;
+
+
 
 export default CardPop;

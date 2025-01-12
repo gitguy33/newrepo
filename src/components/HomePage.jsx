@@ -11,6 +11,7 @@ import NoResults from './noResults.png';
 import CardPop from './CardPopUp';
 import { Modal } from 'react-bootstrap';
 
+
 export const Home = () => {
 
   const [products, setProducts] = useState([]);
@@ -42,7 +43,7 @@ export const Home = () => {
   }, []);
 
   return (
-    <div id='mainDiv'>
+    <div id='mainDiv' style={{backgroundColor:"rgb(240, 240, 240)"}}>
       
       {/* ------------NavBar--------- */}
       <NavigationBar category={category} setCategory={setCategory} setSearchItem={setSearchItem}/>
@@ -67,7 +68,7 @@ export const Home = () => {
             })
             .map((a) => (
               <Col sm={4} key={a.id}>
-                <Card style={{ width: '18rem', gap: "20px", marginTop: "35px" }} onClick={()=>handleClickCard(a)}>
+                <Card style={{ width: '18rem', gap: "20px", marginTop: "35px", backgroundColor:"#A5A5A5"}} onClick={()=>handleClickCard(a)}>
                   <Card.Img variant="top" src={a.images} width="100" style={{ width: "200px", height: "150px", paddingLeft: "90px" }} />
                   <Card.Body>
                     <Card.Title>{a.title}</Card.Title>

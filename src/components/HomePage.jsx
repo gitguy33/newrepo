@@ -83,10 +83,14 @@ export const Home = () => {
         </Row>
       </Container>
       )}
-<Modal show={showModal}><CardPop a={selectedProduct}/></Modal>
-{/* ------Footer-------- */}
+
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <CardPop a={selectedProduct}/>
+      </Modal>
+
+      {/* ------Footer-------- */}
       <FooterSection/>
-{/* ------Footer-------- */}
+      {/* ------Footer-------- */}
 
     </div>
   );

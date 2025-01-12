@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import ExampleCarouselImage from './images/BG.jpg'; // Make sure to import your image correctly
+import ExampleCarouselImage from "./images/BG.jpg";
 import { useState } from 'react';
 import cloth from "./images/cloth image.jpg";
 import electronics from "./images/electronics image.jpg";

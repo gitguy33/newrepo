@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import ExampleCarouselImage from './BG.jpg'; // Make sure to import your image correctly
+import ExampleCarouselImage from './images/BG.jpg'; // Make sure to import your image correctly
 import { useState } from 'react';
 function CarouselSection(){
     const [index, setIndex] = useState(0);

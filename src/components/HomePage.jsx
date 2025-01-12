@@ -84,7 +84,7 @@ export const Home = () => {
       </Container>
       )}
 
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
+      <Modal centered show={showModal} onHide={() => setShowModal(false)}>
         <CardPop a={selectedProduct}/>
       </Modal>
 

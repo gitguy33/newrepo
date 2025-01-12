@@ -65,7 +65,7 @@ function CarouselSection(){
             alt="Third slide"
         />
         <Carousel.Caption>
-            <h3>Fourth slide label</h3>
+            <h3>Fifth slide label</h3>
             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
         </Carousel.Caption>
         </Carousel.Item>

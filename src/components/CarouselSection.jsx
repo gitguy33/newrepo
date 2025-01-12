@@ -1,6 +1,12 @@
 import Carousel from 'react-bootstrap/Carousel';
-import ExampleCarouselImage from './BG.jpg'; // Make sure to import your image correctly
+import ExampleCarouselImage from "./images/BG.jpg"; // Make sure to import your image correctly
 import { useState } from 'react';
+import cloth from "./images/cloth image.jpg";
+import electronics from "./images/electronics image.jpg";
+import foot from "./images/footwear image.jpg";
+import furniture from "./images/furniture image.jpg";
+
+
 function CarouselSection(){
     const [index, setIndex] = useState(0);
 
@@ -13,7 +19,7 @@ function CarouselSection(){
         <Carousel.Item>
         <img
             className="d-block w-100"
-            src={ExampleCarouselImage}
+            src={ExampleCarouselImage }
             alt="First slide"
         />
         <Carousel.Caption>
@@ -25,7 +31,7 @@ function CarouselSection(){
         <Carousel.Item>
         <img
             className="d-block w-100"
-            src={ExampleCarouselImage}
+            src={cloth}
             alt="Second slide"
         />
         <Carousel.Caption>
@@ -37,7 +43,7 @@ function CarouselSection(){
         <Carousel.Item>
         <img
             className="d-block w-100"
-            src={ExampleCarouselImage}
+            src={electronics}
             alt="Third slide"
         />
         <Carousel.Caption>
@@ -49,7 +55,7 @@ function CarouselSection(){
         <Carousel.Item>
         <img
             className="d-block w-100"
-            src={ExampleCarouselImage}
+            src={foot}
             alt="Third slide"
         />
         <Carousel.Caption>
@@ -61,7 +67,7 @@ function CarouselSection(){
         <Carousel.Item>
         <img
             className="d-block w-100"
-            src={ExampleCarouselImage}
+            src={furniture}
             alt="Third slide"
         />
         <Carousel.Caption>

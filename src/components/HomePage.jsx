@@ -7,7 +7,7 @@ import NavigationBar from './NavigationBar';
 import FooterSection from './FooterSection';
 import CarouselSection from './CarouselSection';
 import SpinnerIc from './SpinnerIc';
-import NoResults from './noResults.png';
+import NoResults from "./images/noResults.png";
 import CardPop from './CardPopUp';
 import { Modal } from 'react-bootstrap';
 

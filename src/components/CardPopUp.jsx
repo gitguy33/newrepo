@@ -4,7 +4,8 @@ import styled from 'styled-components';
 const CardPop = ({a}) => {
   return (
     <StyledWrapper>
-      <div className="card">
+      <div className="card" id="popupcard">
+        <div><img src={a.images} alt={a.title} width="100" /></div>
         <div className="content">
           <span className="icon">
             {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" height={46} width={65}>
@@ -21,10 +22,10 @@ const CardPop = ({a}) => {
           </span>
           <p className="title">{a.title}</p>
           <p className="description">
-                {a.description}
-            <br />
+                {a.description}<br/>
+                 <h5>Price:{a.price}</h5>
           </p>
-          <button className="more-options">{a.price}</button>
+          
           <button className="accept-button" type="button">Add to cart</button>
         </div>
       </div>
@@ -36,7 +37,8 @@ const StyledWrapper = styled.div`
   .card {
     --shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
       rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
-    width: 100%;
+    width: 80%;
+    max-width:400px;
     background-color: white;
     border-radius: 1.5rem;
     box-shadow: var(--shadow);

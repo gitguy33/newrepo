@@ -49,3 +49,8 @@
     justify-items: center;
     /* width: 200px; */
 }
+
+#popupcard{
+    display:flex;
+    flex-direction:row;
+}

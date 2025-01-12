@@ -71,35 +71,11 @@ const Order = () => {
                             <div className="cart-total-details">
                                 <p>Sub Tota: ₹ 120</p>
                             </div>
+                            <button type="button" className="proceed-button" onClick={handleProceedToPay}>Proceed to Pay</button>
                         </div>
                     </div>
                 </div>
-                <div className='payment_main'>
-                <h3>Choose Payment Method</h3>
-
-                <div className="radio-input" style={{float:"inherit"}}>
-                <input value="value-1" name="value-radio" id="value-1" type="radio" />
-                <label htmlFor="value-1">
-                <div className="text">
-                <span className="circle"></span>
-                 Card
-                </div>
-                <div className="price">
-                </div>
-                </label>
-                <input value="value-2" name="value-radio" id="value-2" type="radio" />
-                <label htmlFor="value-2">
-                <div className="text">
-                <span className="circle"></span>
-                UPI
-                </div>
-                <div className="price">
-                </div>
-            </label>
-            </div>
-
-                <button type="button" className="proceed-button" onClick={handleProceedToPay}>Proceed to Pay</button>
-                </div>
+                
             </form>
 
             {showModal && (
@@ -107,6 +83,7 @@ const Order = () => {
                     <div className="modal-content">
                         <span className="close" onClick={handleCloseModal}>&times;</span>
                         <h2>Enter Payment Details</h2>
+                        <input type="text" placeholder="Enter Fullname" />
                         <input type="text" placeholder="Card Number" />
                         <input type="text" placeholder="CVV" />
                         <input type="text" placeholder="Expiry Date" />

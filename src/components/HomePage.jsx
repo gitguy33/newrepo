@@ -8,6 +8,8 @@ import FooterSection from './FooterSection';
 import CarouselSection from './CarouselSection';
 import SpinnerIc from './SpinnerIc';
 import NoResults from './noResults.png';
+import CardPop from './CardPopUp';
+import { Modal } from 'react-bootstrap';
 
 export const Home = () => {
 
@@ -15,8 +17,15 @@ export const Home = () => {
   const [category, setCategory] = useState("any");
   const [searchItem, setSearchItem] = useState('');
   const [loading,  setLoading] = useState(true);
+  const [selectedProduct, setSelectedProduct]=useState();
+  const [showModal, setShowModal]=useState(false);
+
   let filteredp=[];
 
+  const handleClickCard=(b)=>{
+    setSelectedProduct(b);
+    setShowModal(true);
+  }
 
   useEffect(() => {
     const fetchPros = async () => {
@@ -58,7 +67,7 @@ export const Home = () => {
             })
             .map((a) => (
               <Col sm={4} key={a.id}>
-                <Card style={{ width: '18rem', gap: "20px", marginTop: "35px" }}>
+                <Card style={{ width: '18rem', gap: "20px", marginTop: "35px" }} onClick={()=>handleClickCard(a)}>
                   <Card.Img variant="top" src={a.images} width="100" style={{ width: "200px", height: "150px", paddingLeft: "90px" }} />
                   <Card.Body>
                     <Card.Title>{a.title}</Card.Title>
@@ -74,7 +83,7 @@ export const Home = () => {
         </Row>
       </Container>
       )}
-
+<Modal show={showModal}><CardPop a={selectedProduct}/></Modal>
 {/* ------Footer-------- */}
       <FooterSection/>
 {/* ------Footer-------- */}

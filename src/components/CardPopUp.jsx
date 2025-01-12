@@ -36,8 +36,7 @@ const StyledWrapper = styled.div`
   .card {
     --shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
       rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
-    width: 80%;
-    max-width: 300px;
+    width: 100%;
     background-color: white;
     border-radius: 1.5rem;
     box-shadow: var(--shadow);

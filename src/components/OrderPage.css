@@ -16,7 +16,7 @@
     padding: 20px;
     border-radius: 15px;
     width: 400px;
-    height: 400px;
+    height: 450px;
     border: 2px solid #ffabaf;
     
     }
@@ -36,7 +36,7 @@
     font-size: 16px;
     color: black;
     outline: none;
-    
+    margin-bottom: 15px;
     width: 360px;
     }
 .payment_input1:focus {
@@ -51,6 +51,7 @@
     color: black;
     outline: none;
     width: 360px;
+    margin-bottom: 15px;
     }
 .payment_input2:focus {
     border-color: #ffabaf;
@@ -64,6 +65,7 @@
     color: black;
     outline: none;
     width: 360px;
+    margin-bottom: 15px;
     
     }
 .payment_input3:focus {
@@ -89,7 +91,7 @@
         font-weight: 500;
         color: var(--color);
         margin-left: 75px;
-        margin-top: 350px;
+        margin-top: 400px;
       }
       
       .submit-button:before {

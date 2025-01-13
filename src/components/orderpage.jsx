@@ -82,11 +82,16 @@ const Order = () => {
                 <div className="modal">
                     <div className="modal-content">
                         <span className="close" onClick={handleCloseModal}>&times;</span>
-                        <h2>Enter Payment Details</h2>
-                        <input type="text" placeholder="Enter Fullname" />
-                        <input type="text" placeholder="Card Number" />
-                        <input type="text" placeholder="CVV" />
-                        <input type="text" placeholder="Expiry Date" />
+                        <h2 style={{textAlign:"center"}}>Enter Payment Details</h2>
+                        <label style={{float:"left"}}>Enter Fullname 
+                        <input style={{float:"inherit"}} type="text" placeholder="Enter Fullname" className='payment_input1'/></label>
+                        <label style={{float:"left",}}>Card Number
+                        <input style={{float:"inherit"}} type="number" placeholder="0000 0000 0000 0000" className='payment_input1' /></label>
+                        <label style={{float:"right"}}>Expiry Date
+                        <input style={{float:"inherit"}} type="text" placeholder="mm/yy" className='payment_input2'/></label>
+                        <label style={{float:"right"}}>CVV
+                        <input style={{float:"inherit"}} type="text" placeholder="CVV" className='payment_input3'/></label>
+                        
                         <button className="submit-button">Submit Payment</button>
                     </div>
                 </div>

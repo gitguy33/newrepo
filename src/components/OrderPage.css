@@ -14,9 +14,11 @@
 .modal-content {
     background-color: white;
     padding: 20px;
-    border-radius: 5px;
-    width: 300px;
-    text-align: center;
+    border-radius: 15px;
+    width: 400px;
+    height: 400px;
+    border: 2px solid #ffabaf;
+    
     }
 
 
@@ -27,7 +29,101 @@
     right: 10px;
     cursor: pointer;
     }
-
+.payment_input1{
+    padding: 10px;
+    border: 2px solid #ffabaf;
+    border-radius: 15px;
+    font-size: 16px;
+    color: black;
+    outline: none;
+    
+    width: 360px;
+    }
+.payment_input1:focus {
+    border-color: #ffabaf;
+    box-shadow: 0 0 0 0.2rem rgba(215, 100, 187, 0.25);
+}
+.payment_input2{
+    padding: 10px;
+    border: 2px solid #ffabaf;
+    border-radius: 15px;
+    font-size: 16px;
+    color: black;
+    outline: none;
+    width: 360px;
+    }
+.payment_input2:focus {
+    border-color: #ffabaf;
+    box-shadow: 0 0 0 0.2rem rgba(215, 100, 187, 0.25);
+}
+.payment_input3{
+     padding: 10px;
+    border: 2px solid #ffabaf;
+    border-radius: 15px;
+    font-size: 16px;
+    color: black;
+    outline: none;
+    width: 360px;
+    
+    }
+.payment_input3:focus {
+    border-color: #ffabaf;
+    box-shadow: 0 0 0 0.2rem rgba(215, 100, 187, 0.25);
+    }
+    .submit-button{
+        --color: #ffabaf;
+        font-family: inherit;
+        display: inline-block;
+        width: 200px;
+        height: 2.6em;
+        line-height: 2.5em;
+        margin: 20px;
+        position: absolute;
+        cursor: pointer;
+        overflow: hidden;
+        border: 2px solid var(--color);
+        transition: color 0.5s;
+        z-index: 1;
+        font-size: 17px;
+        border-radius: 6px;
+        font-weight: 500;
+        color: var(--color);
+        margin-left: 75px;
+        margin-top: 350px;
+      }
+      
+      .submit-button:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        background: var(--color);
+        height: 150px;
+        width: 200px;
+        border-radius: 50%;
+      }
+      
+      .submit-button:hover {
+        color: #ffffff;
+      }
+      
+      .submit-button:before {
+        top: 100%;
+        left: 100%;
+        transition: all 0.7s;
+      }
+      
+      .submit-button:hover:before {
+        top: -30px;
+        left: -30px;
+      }
+      
+      .submit-button:active:before {
+        background: #ffabaf;
+        transition: 0s;
+      }
+    
+      
+    
 .title{
     margin-left: 20px;
     margin-top: 20px;
@@ -168,4 +264,3 @@
     background: #ffabaf;
     transition: background 0s;
   }
-  

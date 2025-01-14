@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Order from './components/orderpage';
+import  Home  from './components/HomePage';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <Router>
           <Routes>
             {/* <Route path="/" element={<Order/>}/> */}
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home/>} />
             <Route path="/order" element={<Order />} />
           </Routes>
         </Router>

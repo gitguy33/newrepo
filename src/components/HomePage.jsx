@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import ExampleCarouselImage from './BG.jpg'; 
+import ExampleCarouselImage from './images/freepik__background__47830.png';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -10,7 +10,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { IoMdLogIn } from "react-icons/io";
 import { Link } from 'react-router-dom';
 
-export const Home = () => {
+ const Home = () => {
 
   const [index, setIndex] = useState(0);
 
@@ -114,5 +114,5 @@ export const Home = () => {
     </div>
   );
 };
-
+export default Home;
 

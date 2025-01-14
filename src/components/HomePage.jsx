@@ -8,6 +8,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { IoMdLogIn } from "react-icons/io";
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
 
@@ -25,7 +26,11 @@ export const Home = () => {
           <Navbar.Brand href="#home">QuickCart</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">MyOrders</Nav.Link>
+            <div style={{ marginLeft: "50px" }}>
+                <Nav.Link as={Link} to="/Order">
+                  My Orders
+                </Nav.Link>
+              </div>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
             <Nav.Link href="#pricing">AboutUs</Nav.Link>
 
@@ -109,3 +114,5 @@ export const Home = () => {
     </div>
   );
 };
+
+
